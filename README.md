@@ -22,3 +22,10 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+
+*Dockerised because in windows we are getting bcrypt error
+docker-compose build
+docker-compose up -d
+docker-compose run web rails db:create
+docker-compose run web rails db:migrate

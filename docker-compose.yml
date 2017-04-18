@@ -1,0 +1,16 @@
+version: '2'
+services:
+  db:
+    image: postgres
+    ports:
+      - "6432:5432"
+  web:
+    build: .
+    command: bundle exec rails s -p 3000 -b '0.0.0.0' -P tmp/pids/server5.pid
+
+    volumes:
+      - .:/myapp
+    ports:
+      - "3100:3000"
+    depends_on:
+      - db
